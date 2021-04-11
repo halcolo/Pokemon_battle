@@ -21,7 +21,7 @@ We have two pokémons and python selects a random pokemon The pokémon attacks w
 | Squirtle | +20 |50|80|
 
 
-![alt text](https://m.popkey.co/c8089e/l3KWZ_s-200x150.gif)
+![pikachu](img/Pika_Gif.gif)
 
 ## UML diagrams
 

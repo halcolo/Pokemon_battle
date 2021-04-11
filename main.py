@@ -1,32 +1,65 @@
-import requests
-import json
-# -*- coding: utf8 -*-
-name_f = 'Hola.html'
+from constants import *
+from models import *
 
-def get_pokemons(url= 'http://pokeapi.co/api/v2/pokemon-form',offset = 0):
-    #offset permite excoger la página
-    args = {'offset': offset} if offset else{}
-    response = requests.get(url, params=args)
+# First define pokemons with their stats
 
-    #Si el status es 200 muestreme lo siguiente
-    if response.status_code == 200:
-        pyload = response.json()
-        results = pyload.get('results',[])
+pokemon1 = Pokemon("Bulbasaur", 100, "grass", "poison")
+pokemon2 = Pokemon("Charmander", 100, "fire", None)
+pokemon1.current_hp = 45
+pokemon2.current_hp = 39
 
-        if results:
-            #Recorra los pókemon e imprima los nombres
-            for pokemon in results:
-                name = pokemon['name']
-                print(name)
+# Stats
 
-        #Si quiere imprimir los siguientes 20 vuelva a correr con un ofset mayor
-        next = input('Continuar listando {Y/N]')
+pokemon1.stats = {
+    HP: 45,
+    ATTACK: 49,
+    DEFENSE: 49,
+    SPATTACK: 65,
+    SPDEFENSE: 65,
+    SPEED: 45
+}
 
+pokemon2.stats = {
+    HP: 39,
+    ATTACK: 52,
+    DEFENSE: 43,
+    SPATTACK: 80,
+    SPDEFENSE: 65,
+    SPEED: 65
+}
 
-        if next.upper() == 'Y':
-            get_pokemons(offset = offset + 20)
-        else:
-            print ('Proceso finalizado')
-if __name__ == '__main__':
-    url = 'http://pokeapi.co/api/v2/pokemon-form'
-    get_pokemons()
+# Attacks
+
+scratch = Attack("scratch", "normal", PHYSICAL, 10, 10, 100)
+pokemon1.attacks = [scratch]
+pokemon2.attacks = [scratch]
+
+# Start battle
+
+battle = Battle(pokemon1, pokemon2)
+
+def ask_command(pokemon):
+    command = None
+    while not command:
+        # DO ATTACK  -> attack 0
+        tmp_command = input(f"What should {pokemon.name} do?: ").split(" ")
+        if  len(tmp_command) == 2:
+            try:
+                if tmp_command[0] == DO_ATTACK and 0 <= int(tmp_command[1]) < 4:
+                    command = Command({DO_ATTACK: int(tmp_command[1])})
+            except Exception:
+                pass
+    return command
+
+while not battle.is_finished():
+    command1 = ask_command(pokemon1)
+    command2 = ask_command(pokemon2)
+
+    turn = Turn()
+    turn.command1 = command1
+    turn.command2 = command2
+
+    if turn.can_start():
+        # Execute turn
+        battle.execute_turn(turn)
+        battle.print_current_status()
