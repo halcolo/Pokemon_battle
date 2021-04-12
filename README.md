@@ -8,6 +8,6 @@ The ecuation for the calc of HP:
 ![equation](img/HPcalc.png)
 
 The ecuation for other stats:
-![equation](img/OtherStatsCalc.png)
+![other stats](img/otherStatsCalc.png)
 
 ![Charmander](img/charmander.gif)
