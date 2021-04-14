@@ -112,3 +112,8 @@ TYPE_CHART = [
     [1,2,1,1,1,1,2,.5,1,1,1,1,1,0,1,1,.5,2],
     [1,.5,1,2,1,1,.5,1,2,1,1,1,1,1,1,0,.5,1]
 ]
+
+# OS
+DIR = "dataset"
+JSON_NAME = "pokemon_base.json"
+ROUTE = f"{DIR}/{JSON_NAME}"
