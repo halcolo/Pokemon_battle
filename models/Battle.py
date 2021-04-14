@@ -64,7 +64,7 @@ class Battle:
             stab = 1.5
         # Compute type effectives
         effectiveness1 = TYPE_CHART[pokemon2.type1][attack.type]
-        effectiveness2 = TYPE_CHART[pokemon2.type2][attack.type]
+        effectiveness2 = effectiveness2 = TYPE_CHART[pokemon2.type2][attack.type] if pokemon2.type2 else 0
         effectiveness_final = effectiveness1 + effectiveness2
         print(effectiveness1, effectiveness2)
         critical = 1

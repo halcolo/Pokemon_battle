@@ -2,14 +2,8 @@
 # Pokemon Battle
 
 
-This phase of the code is na extension of Phase 2, it's includes the damage calculation and modifiers including the STAB added at third generation of pokémon.
+At this point we will get a Database based in the base stored in pokemonDb, with webscraping we will get the basic stats, types, name and id to implement a new feature to the game, select a pokemon and fight with him.
 
-The ecuation damage calculation:
-![equation](img/damage.png)
+Form more info let's check [this link to pokedex](https://pokemondb.net/pokedex/all)
 
-The ecuation for modifiers:
-![other stats](img/modifiers_1.png)
-
-Form more info let's check [this link at bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Damage#Damage_calculation)
-
-![Charmander](img/charmander.gif)
+![Charmander](img/pokemons.gif)

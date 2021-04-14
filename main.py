@@ -5,7 +5,7 @@ from models.Battle import *
 # First define pokemons with their stats
 
 pokemon1 = Pokemon("Bulbasaur", 2, 11, 3)
-pokemon2 = Pokemon("Charmander", 2, 9, 1)
+pokemon2 = Pokemon("Charmander", 2, 9, None)
 pokemon1.current_hp = 45
 pokemon2.current_hp = 39
 
