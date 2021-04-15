@@ -1,6 +1,6 @@
 import os
 from constants import DIR, ROUTE
-from utils.Pokemon_scraper import *
+from utils.PokemonStats_scraper import get_all_pokemons
 
 
 if __name__ == "__main__":

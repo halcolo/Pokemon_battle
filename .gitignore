@@ -102,5 +102,7 @@ ENV/
 .idea/
 .vscode
 
-dataset/
+# Application Files
 *.json
+*.png
+.DS_Store
