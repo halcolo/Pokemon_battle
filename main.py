@@ -1,85 +1,11 @@
+import pygame
+from pygame.display import update
+from pygame.locals import *
 from constants import *
 from models.Pokemon import *
 from models.Battle import * 
+from game import Game
 
-# First define pokemons with their stats
-
-pokemon1 = Pokemon("Bulbasaur", 2, 11, 3)
-pokemon2 = Pokemon("Charmander", 2, 9, None)
-pokemon1.current_hp = 45
-pokemon2.current_hp = 39
-
-# Stats
-
-
-pokemon1.basecStats = {
-    HP: 45,
-    ATTACK: 49,
-    DEFENSE: 49,
-    SPATTACK: 65,
-    SPDEFENSE: 65,
-    SPEED: 45
-}
-
-pokemon1.ev = {
-    HP: 0,
-    ATTACK: 0,
-    DEFENSE: 0,
-    SPATTACK: 0,
-    SPDEFENSE: 0,
-    SPEED: 0
-}
-
-pokemon1.iv = {
-    HP: 21,
-    ATTACK: 21,
-    DEFENSE: 21,
-    SPATTACK: 21,
-    SPDEFENSE: 21,
-    SPEED: 21
-}
-
-pokemon1.compute_stats()
-
-pokemon2.basecStats = {
-    HP: 39,
-    ATTACK: 52,
-    DEFENSE: 43,
-    SPATTACK: 80,
-    SPDEFENSE: 65,
-    SPEED: 65
-}
-
-pokemon2.ev = {
-    HP: 0,
-    ATTACK: 0,
-    DEFENSE: 0,
-    SPATTACK: 0,
-    SPDEFENSE: 0,
-    SPEED: 0
-}
-
-pokemon2.iv = {
-    HP: 21,
-    ATTACK: 21,
-    DEFENSE: 21,
-    SPATTACK: 21,
-    SPDEFENSE: 21,
-    SPEED: 21
-}
-
-pokemon2.compute_stats()
-print(pokemon1.stats)
-print(pokemon2.stats)
-
-# Attacks
-
-pokemon1.attacks = [Attack("Spark", 12, SPECIAL, 10, 10, 100)]
-pokemon2.attacks = [Attack("Scratch", 0, PHYSICAL, 10, 10, 100)]
-
-# Start battle
-
-battle = Battle(pokemon1, pokemon2)
 
 def ask_command(pokemon):
     command = None
@@ -94,6 +20,7 @@ def ask_command(pokemon):
                 pass
     return command
 
+"""
 while not battle.is_finished():
     command1 = ask_command(pokemon1)
     command2 = ask_command(pokemon2)
@@ -106,3 +33,13 @@ while not battle.is_finished():
         # Execute turn
         battle.execute_turn(turn)
         battle.print_current_status()
+"""
+
+
+if __name__ == "__main__":
+
+    game = Game()
+    while not game.stopped:
+        game.exit_input()
+        game.update()
+        game.render()

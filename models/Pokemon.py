@@ -15,6 +15,12 @@ class Pokemon:
         self.current_status = 0
         self.current_hp = 0
         self.nature = 0
+        self.renderer = None
+
+    def render(self, screen, position):
+        if self.renderer:
+            print('rendering')
+            screen.blit(self.renderer, position)
 
     def compute_stats(self):
         self.stats = {

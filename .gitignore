@@ -102,7 +102,7 @@ ENV/
 .idea/
 .vscode
 
-# Application Files
+dataset/
 *.json
+*.DS_Store
 *.png
-.DS_Store
