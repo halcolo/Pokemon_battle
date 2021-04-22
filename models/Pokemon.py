@@ -19,7 +19,6 @@ class Pokemon:
 
     def render(self, screen, position):
         if self.renderer:
-            print('rendering')
             screen.blit(self.renderer, position)
 
     def compute_stats(self):
