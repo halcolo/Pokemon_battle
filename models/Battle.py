@@ -66,7 +66,7 @@ class Battle:
         effectiveness1 = TYPE_CHART[pokemon2.type1][attack.type]
         effectiveness2 = effectiveness2 = TYPE_CHART[pokemon2.type2][attack.type] if pokemon2.type2 else 0
         effectiveness_final = effectiveness1 + effectiveness2
-        print(effectiveness1, effectiveness2)
+        print('Effectivenes', effectiveness1, effectiveness2)
         critical = 1
         if random.random() <= 1:
             print(f"{pokemon1.name} did a critical attack")
